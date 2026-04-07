@@ -125,6 +125,127 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex
 
 .toast{position:fixed;bottom:24px;right:24px;background:var(--acc);color:var(--blk);padding:12px 20px;border-radius:8px;font-size:.85rem;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none;font-family:'DM Sans',sans-serif}
 .toast.show{opacity:1;transform:translateY(0)}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  nav{
+    padding:0 20px;
+    height:auto;
+    min-height:66px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .logo{
+    font-size:1rem;
+  }
+
+  .nlinks{
+    width:100%;
+    gap:16px;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+
+  .nlinks a{
+    font-size:.8rem;
+  }
+
+  .ncta{
+    width:100%;
+    text-align:center;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:56px 20px;
+  }
+
+  h1{
+    font-size:2.5rem;
+    line-height:1.05;
+    margin-bottom:20px;
+  }
+
+  .hero-sub{
+    font-size:1rem;
+    line-height:1.6;
+    margin-bottom:28px;
+  }
+
+  .hero-acts{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn-gold,
+  .btn-ghost{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .industries{
+    margin-top:36px;
+    padding-top:28px;
+  }
+
+  .services,
+  .ind-sect,
+  .how-inner,
+  .cta-sect{
+    padding:72px 20px;
+  }
+
+  .audit-inner{
+    padding:72px 20px;
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .svc-grid,
+  .ind-grid,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .svc-card,
+  .step{
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+
+  .svc-card:last-child,
+  .step:last-child{
+    border-bottom:none;
+  }
+
+  .ind-card{
+    padding:24px;
+  }
+
+  .score-grid{
+    grid-template-columns:1fr;
+  }
+
+  .fi-row{
+    flex-direction:column;
+  }
+
+  footer{
+    padding:24px 20px;
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
+  }
+
+  .toast{
+    right:12px;
+    left:12px;
+    bottom:12px;
+    text-align:center;
+  }
+}
 </style>
 </head>
 <body>
