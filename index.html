@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tunnxl Vision — Boston's Creative Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blk:#080808;--wht:#f8f6f2;--off:#f0ede7;
+  --acc:#e8b94a;--acc2:#f5d080;
+  --mut:#7a7670;--bdr:#e0dbd2;
+  --grn:#1a3a2a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--blk);color:var(--wht);overflow-x:hidden}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 48px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--wht);letter-spacing:-.02em}
+.logo span{color:var(--acc)}
+.nlinks{display:flex;gap:32px;align-items:center}
+.nlinks a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nlinks a:hover{color:var(--wht)}
+.ncta{background:var(--acc)!important;color:var(--blk)!important;padding:10px 22px;border-radius:6px;font-weight:700!important;font-size:.85rem!important}
+.ncta:hover{background:var(--acc2)!important}
+
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:80px 48px;max-width:1200px;margin:0 auto;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(232,185,74,.3);background:rgba(232,185,74,.08);padding:6px 14px;border-radius:100px;font-size:.72rem;font-weight:600;color:var(--acc);letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,6vw,6rem);font-weight:800;line-height:1.0;letter-spacing:-.04em;color:var(--wht);margin-bottom:28px;max-width:900px}
+h1 em{font-style:normal;color:var(--acc)}
+h1 .dim{color:rgba(255,255,255,.25)}
+.hero-sub{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:540px;margin-bottom:44px}
+.hero-acts{display:flex;gap:16px;align-items:center}
+.btn-gold{background:var(--acc);color:var(--blk);padding:15px 32px;border-radius:8px;font-size:.95rem;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:var(--acc2);transform:translateY(-2px)}
+.btn-ghost{color:rgba(255,255,255,.6);font-size:.9rem;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;transition:color .2s,gap .2s;font-family:'DM Sans',sans-serif}
+.btn-ghost:hover{color:var(--wht);gap:10px}
+.industries{display:flex;gap:12px;flex-wrap:wrap;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.08)}
+.ind-label{font-size:.75rem;color:rgba(255,255,255,.3);font-weight:500;display:flex;align-items:center;margin-right:4px}
+.ind-chip{border:1px solid rgba(255,255,255,.12);padding:7px 16px;border-radius:100px;font-size:.78rem;color:rgba(255,255,255,.45);transition:border-color .2s,color .2s;cursor:default}
+.ind-chip:hover{border-color:rgba(232,185,74,.4);color:var(--acc)}
+
+.marquee-wrap{border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0;overflow:hidden;background:rgba(255,255,255,.02)}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marquee 18s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.18);white-space:nowrap}
+.marquee-dot{color:var(--acc);margin:0 8px}
+
+.services{padding:100px 48px;max-width:1200px;margin:0 auto}
+.sec-eye{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:16px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--wht);margin-bottom:16px}
+h2 em{font-style:normal;color:var(--acc)}
+.sec-sub{font-size:1rem;line-height:1.7;color:rgba(255,255,255,.45);max-width:500px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
+.svc-card{background:rgba(255,255,255,.02);padding:36px 32px;border-right:1px solid rgba(255,255,255,.06);transition:background .2s}
+.svc-card:hover{background:rgba(255,255,255,.05)}
+.svc-card:last-child{border-right:none}
+.svc-num{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:.08em;margin-bottom:20px}
+.svc-icon{font-size:1.6rem;margin-bottom:16px}
+.svc-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--wht);margin-bottom:10px}
+.svc-desc{font-size:.875rem;color:rgba(255,255,255,.45);line-height:1.6}
+
+.audit-sect{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.audit-inner{padding:100px 48px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.audit-card{background:#0f0f0f;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
+.ac-head{background:rgba(232,185,74,.08);border-bottom:1px solid rgba(232,185,74,.15);padding:18px 22px;display:flex;align-items:center;gap:10px}
+.ac-dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.ac-title{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.7)}
+.ac-badge{margin-left:auto;background:var(--acc);color:var(--blk);font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.05em}
+.ac-body{padding:22px}
+.biz-name{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--wht);margin-bottom:3px}
+.biz-meta{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:18px}
+.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.sc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px 14px}
+.scl{font-size:.66rem;color:rgba(255,255,255,.35);font-weight:500;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.scv{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--wht)}
+.scv.w{color:#e8913a}
+.scc{font-size:.66rem;font-weight:600;margin-top:2px;color:#4caf7d}
+.scc.d{color:#e8913a}
+.insight{background:rgba(232,185,74,.06);border:1px solid rgba(232,185,74,.15);border-radius:8px;padding:13px 15px;margin-bottom:14px}
+.ins-l{font-size:.66rem;font-weight:700;color:var(--acc);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.ins-t{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--acc);color:var(--blk);font-size:.72rem;font-weight:700;padding:8px 14px;border-radius:6px;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:background .2s}
+.chip:hover{background:var(--acc2)}
+.chip.o{background:transparent;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5)}
+.chip.o:hover{border-color:var(--acc);color:var(--acc)}
+
+.ind-sect{padding:100px 48px;max-width:1200px;margin:0 auto}
+.ind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
+.ind-card{border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:32px;display:flex;gap:20px;align-items:flex-start;transition:border-color .2s,background .2s;cursor:default}
+.ind-card:hover{border-color:rgba(232,185,74,.3);background:rgba(232,185,74,.03)}
+.ind-icon{font-size:1.8rem;flex-shrink:0}
+.ind-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--wht);margin-bottom:8px}
+.ind-desc{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.6}
+
+.how-sect{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.how-inner{padding:100px 48px;max-width:1200px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
+.step{padding:36px 28px;background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06)}
+.step:last-child{border-right:none}
+.step-n{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:rgba(255,255,255,.06);margin-bottom:16px;line-height:1}
+.step-t{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--wht);margin-bottom:8px}
+.step-d{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.6}
+
+.cta-sect{padding:100px 48px}
+.cta-inner{max-width:720px;margin:0 auto;text-align:center}
+.form-wrap{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto}
+.fi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--wht);padding:14px 18px;border-radius:8px;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;width:100%}
+.fi::placeholder{color:rgba(255,255,255,.25)}
+.fi:focus{border-color:rgba(232,185,74,.5)}
+.fi-row{display:flex;gap:10px}
+.fi-row .fi{flex:1}
+.form-note{font-size:.78rem;color:rgba(255,255,255,.25);margin-top:8px}
+.success{display:none;background:rgba(232,185,74,.08);border:1px solid rgba(232,185,74,.25);border-radius:10px;padding:20px 24px;color:rgba(255,255,255,.7);font-size:.9rem;margin-top:16px;line-height:1.6}
+.success.show{display:block}
+
+footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
+.fl{font-family:'Syne',sans-serif;font-weight:800;color:var(--wht);font-size:1rem}
+.fl span{color:var(--acc)}
+.fc2{font-size:.78rem;color:rgba(255,255,255,.2)}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--acc);color:var(--blk);padding:12px 20px;border-radius:8px;font-size:.85rem;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none;font-family:'DM Sans',sans-serif}
+.toast.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<nav>
+  <div class="logo">Tunnxl <span>Vision</span></div>
+  <div class="nlinks">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#how">How It Works</a>
+    <a href="#audit" class="ncta">Book Free Audit</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Boston's Creative Agency</div>
+  <h1>We make <em>boring</em> businesses<br><span class="dim">impossible</span> to ignore.</h1>
+  <p class="hero-sub">Tunnxl Vision audits your brand, identifies exactly what's holding you back, then deploys a filmmaking team to build content that actually grows your business.</p>
+  <div class="hero-acts">
+    <a href="#audit" class="btn-gold">Book Your Free Audit →</a>
+    <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See what we do <span>→</span></button>
+  </div>
+  <div class="industries">
+    <span class="ind-label">We work with</span>
+    <span class="ind-chip">Dispensaries</span>
+    <span class="ind-chip">Restaurants & Bars</span>
+    <span class="ind-chip">Gyms & Fitness</span>
+    <span class="ind-chip">Auto Shops</span>
+    <span class="ind-chip">Property Owners</span>
+    <span class="ind-chip">+ More</span>
+  </div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Audit<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Short Form Video<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Instagram Growth<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Competitor Analysis<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Content Strategy<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Reels Production<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Brand Identity<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Boston Based<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Brand Audit<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Short Form Video<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Instagram Growth<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Competitor Analysis<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Content Strategy<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Reels Production<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Brand Identity<span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Boston Based<span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-eye">What We Do</div>
+  <h2>Data first. <em>Camera second.</em></h2>
+  <p class="sec-sub">Most agencies guess. We audit your brand before we ever pick up a camera — so every piece of content has a reason to exist.</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">🔍</div>
+      <div class="svc-title">Tunnxl Audit</div>
+      <div class="svc-desc">We pull your real reputation from Google, Yelp, Reddit, and Instagram. You see exactly where you stand and where you're losing to competitors.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">🎬</div>
+      <div class="svc-title">Content Production</div>
+      <div class="svc-desc">Our filmmaking team shoots Reels, carousels, and story content built around your audit data — not generic templates.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">📈</div>
+      <div class="svc-title">Brand Growth</div>
+      <div class="svc-desc">We manage, post, and optimize your social presence every month. You run your business. We handle the internet.</div>
+    </div>
+  </div>
+</section>
+
+<div class="audit-sect">
+  <div class="audit-inner">
+    <div>
+      <div class="sec-eye">The Tunnxl Audit</div>
+      <h2>Know exactly<br>where you <em>stand.</em></h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.45);margin-bottom:32px">Before we shoot a single frame, we run a full audit of your online presence — reviews, ratings, engagement, competitors. You get a real picture of your brand health in 48 hours.</p>
+      <a href="#audit" class="btn-gold">Get Your Free Audit →</a>
+    </div>
+    <div class="audit-card">
+      <div class="ac-head">
+        <div class="ac-dot"></div>
+        <div class="ac-title">Tunnxl Audit — Live Report</div>
+        <div class="ac-badge">LIVE</div>
+      </div>
+      <div class="ac-body">
+        <div class="biz-name">Mike's Auto Boston</div>
+        <div class="biz-meta">Dorchester, MA · Audited today</div>
+        <div class="score-grid">
+          <div class="sc"><div class="scl">Google Rating</div><div class="scv">3.8</div><div class="scc d">↓ Below area avg of 4.3</div></div>
+          <div class="sc"><div class="scl">Insta Engagement</div><div class="scv w">0.4%</div><div class="scc d">↓ Way below benchmark</div></div>
+          <div class="sc"><div class="scl">Yelp Reviews</div><div class="scv">3.5</div><div class="scc d">↓ 9 negative (60 days)</div></div>
+          <div class="sc"><div class="scl">Competitor Gap</div><div class="scv w">−0.9</div><div class="scc d">↓ vs. nearest 3 shops</div></div>
+        </div>
+        <div class="insight">
+          <div class="ins-l">AI Insight</div>
+          <div class="ins-t">Customers love the pricing but 9 reviews mention communication issues. A "day-in-the-shop" Reels series builds trust and directly addresses the most common complaint.</div>
+        </div>
+        <div class="btn-row">
+          <button class="chip" onclick="showToast('Content plan generated.')">Content Plan</button>
+          <button class="chip o" onclick="showToast('Full report loading...')">Full Report</button>
+          <button class="chip o" onclick="showToast('Competitor analysis loading...')">Competitors</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ind-sect" id="industries">
+  <div class="sec-eye">Industries</div>
+  <h2>Built for businesses<br>that have <em>been slept on.</em></h2>
+  <p class="sec-sub">If your business has been around for years but your social media looks like an afterthought — that's exactly who we built this for.</p>
+  <div class="ind-grid">
+    <div class="ind-card">
+      <div class="ind-icon">🍽️</div>
+      <div>
+        <div class="ind-title">Restaurants & Bars</div>
+        <div class="ind-desc">Your food is the content. We shoot it, story it, and build you an audience that shows up hungry. Reviews, ambiance, behind-the-scenes — all of it.</div>
+      </div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">💪</div>
+      <div>
+        <div class="ind-title">Gyms & Fitness</div>
+        <div class="ind-desc">Transformations, trainers, community — gyms have the best content in the world and most of them never capture it. We fix that.</div>
+      </div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🚗</div>
+      <div>
+        <div class="ind-title">Auto Shops & Dealerships</div>
+        <div class="ind-desc">Before/afters, shop culture, customer stories — auto shops are criminally underrated on social. We make your shop the one everyone knows.</div>
+      </div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🏢</div>
+      <div>
+        <div class="ind-title">Property Owners & Landlords</div>
+        <div class="ind-desc">Listings, walkthroughs, neighborhood content — property owners with strong social presence fill units faster. We build that presence.</div>
+      </div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🌿</div>
+      <div>
+        <div class="ind-title">Cannabis Dispensaries</div>
+        <div class="ind-desc">Our bread and butter. We know the compliance landscape and we know how to build a dispensary brand that actually drives foot traffic.</div>
+      </div>
+    </div>
+    <div class="ind-card" style="border-style:dashed;cursor:pointer" onclick="showToast('Reach out — if your business has a story, we can tell it.')">
+      <div class="ind-icon">➕</div>
+      <div>
+        <div class="ind-title">Your Industry</div>
+        <div class="ind-desc">If your business has a story worth telling and competitors who are out-marketing you, we want to talk. Reach out and let's see what's possible.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="how-sect" id="how">
+  <div class="how-inner">
+    <div class="sec-eye">How It Works</div>
+    <h2>From audit to content<br>in <em>48 hours.</em></h2>
+    <p class="sec-sub">No long contracts to start. No generic decks. Just a real audit and a real plan — then we get to work.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-t">Book Your Free Audit</div>
+        <div class="step-d">Drop your info and we'll pull your full brand audit — reviews, ratings, social, competitors — within 48 hours.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-t">We Show You the Gaps</div>
+        <div class="step-d">We walk you through exactly where you're losing to competitors and what content would move the needle fastest.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-t">We Shoot the Content</div>
+        <div class="step-d">Our filmmaking team comes to you. We shoot Reels, carousels, and photos built around the audit — not generic templates.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-t">We Grow Your Brand</div>
+        <div class="step-d">Monthly content, posting, and optimization. We track what's working and keep building on it. You focus on your business.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-sect" id="audit">
+  <div class="cta-inner">
+    <div class="sec-eye">Free Audit</div>
+    <h2>See what your brand<br>actually looks like <em>online.</em></h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45);margin:0 auto 40px">We review every request personally and follow up within 24 hours. No pitch decks. Just a real conversation about your business.</p>
+    <div class="form-wrap">
+      <div class="fi-row">
+        <input class="fi" type="text" id="fname" placeholder="Your name" />
+        <input class="fi" type="text" id="fbiz" placeholder="Business name" />
+      </div>
+      <input class="fi" type="email" id="femail" placeholder="your@email.com" />
+      <select class="fi" id="find" style="cursor:pointer">
+        <option value="" disabled selected>What industry are you in?</option>
+        <option>Restaurant / Bar</option>
+        <option>Gym / Fitness</option>
+        <option>Auto Shop / Dealership</option>
+        <option>Property Owner / Landlord</option>
+        <option>Cannabis Dispensary</option>
+        <option>Other</option>
+      </select>
+      <button class="btn-gold" style="width:100%;text-align:center" onclick="handleSubmit()">Book My Free Audit →</button>
+      <p class="form-note">No credit card. No agency contract. Just a real audit, on us.</p>
+      <div class="success" id="succ">We got you. Expect a message from us within 24 hours — we review every application personally and come prepared.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Tunnxl <span>Vision</span></div>
+  <div class="fc2">© 2026 Tunnxl Vision · Boston, MA</div>
+</footer>
+
+<script>
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show')},2800);
+}
+function handleSubmit(){
+  var name=document.getElementById('fname').value.trim();
+  var biz=document.getElementById('fbiz').value.trim();
+  var email=document.getElementById('femail').value.trim();
+  var ind=document.getElementById('find').value;
+  if(!name){showToast('Drop your name.');return;}
+  if(!biz){showToast('What\'s your business called?');return;}
+  if(!email||!email.includes('@')){showToast('Need a valid email.');return;}
+  if(!ind){showToast('Pick your industry.');return;}
+  document.getElementById('succ').classList.add('show');
+  document.getElementById('fname').value='';
+  document.getElementById('fbiz').value='';
+  document.getElementById('femail').value='';
+  document.getElementById('find').selectedIndex=0;
+  showToast('Audit request received. Talk soon.');
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href').slice(1);
+    var el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
